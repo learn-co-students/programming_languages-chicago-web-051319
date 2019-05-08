@@ -1,15 +1,13 @@
 require 'pry'
 
 def reformat_languages(languages)
-  new_langugages = {}
+  new_languages = {}
   languages.each do |style, language|
     language.each do |type, status|
-      new_langugages[type]||= status
-      new_langugages[type][:style] = []
-      new_langugages[type][:style] << style
+      new_languages[type] ||= status
+      new_languages[type][:style] ||= []
+      new_languages[type][:style] << style
 end
 end
-new_langugages
+new_languages
 end
-
-#style == :oo && :functional
