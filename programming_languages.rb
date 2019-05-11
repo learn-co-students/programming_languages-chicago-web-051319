@@ -5,20 +5,18 @@ def reformat_languages(languages)
   new_hash = {}
 
 
-  styles = languages.keys #contains styles
-  new_lang = languages.values #contains all languages, but seperate
-
-
-  languages.each do |style, langs|
+  languages.collect do |style, langs|
     a = []
-
+    # binding.pry
     a.push style
 
-    # binding.pry
-
       langs.each do |k, v|
-      v[:style] = a
-      new_hash[k] = v
+
+      # v[:style] ||= a
+      # binding.pry
+      new_hash[k] ||= v
+      new_hash[k][:style] ||= []
+      new_hash[k][:style].push style
       # binding.pry
 
     end
